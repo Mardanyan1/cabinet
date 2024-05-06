@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from django.contrib.auth import get_user_model
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -87,7 +88,7 @@ DATABASES = {
     }
 }
 
-# AUTH_USER_MODEL = 'cabinets.CustomUser'
+AUTH_USER_MODEL = 'cabinets.CustomUser'
 
 
 # Password validation

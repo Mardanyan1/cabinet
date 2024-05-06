@@ -9,20 +9,30 @@
     <h2>User Registration</h2>
     <form action="{% url 'register' %}" method="post">
         {% csrf_token %}
-        <label for="first_name">Имя:</label><br>
-        <input type="text" id="first_name" name="first_name" required><br>
+<!--        <label for="first_name">Имя:</label><br>-->
+<!--        <input type="text" id="first_name" name="first_name" required><br>-->
 
-        <label for="first_name">Фамилия:</label><br>
-        <input type="text" id="last_name" name="last_name" required><br>
+<!--        <label for="last_name">Фамилия:</label><br>-->
+<!--        <input type="text" id="last_name" name="last_name" required><br>-->
 
-        <label for="first_name">Контактные данные:</label><br>
+        <label for="username">Имя:</label><br>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="contact_info">Контактные данные:</label><br>
         <input type="text" id="contact_info" name="contact_info" required><br>
 
-        <label for="first_name">Опыт работы:</label><br>
+        <label for="experience">Опыт работы:</label><br>
         <input type="text" id="experience" name="experience" required><br>
 
-        <label for="first_name">Пароль:</label><br>
-        <input type="text" id="password" name="password" required><br>
+        <label for="password1">Пароль:</label><br>
+        <input type="text" id="password1" name="password1" required><br>
+
+        <label for="password2">Повтори пароль:</label><br>
+        <input type="text" id="password2" name="password2" required><br>
+
+        <label for="is_superuser">Администратор?:</label><br>
+        <input type="checkbox" id="is_superuser" name="is_superuser" value="true"> True<br>
+        <input type="checkbox" id="is_superuser" name="is_superuser" value="false"> False<br>
 
         <input type="submit" value="Отправить">
     </form>

@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
 </head>
 <body>
-$END$
+    <h2>Profile</h2>
+    <p>Имя: {{ form.first_name }}</p>
+    <p>Фамилия: {{ form.last_name }}</p>
+    <p>Контактные данные: {{ form.contact_info }}</p>
+    <p>Опыт работы: {{ form.experience }}</p>
+    <p>Роль: {{ form.is_superuser }}</p>
+
+    {% if user.role == 'admin' %}
+        <form action="{% url 'update_profile' %}" method="post">
+            {% csrf_token %}
+            <label for="first_name">Имя:</label><br>
+            <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}"><br>
+
+            <label for="last_name">Фамилия:</label><br>
+            <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}"><br>
+
+            <label for="contact_info">Контактные данные:</label><br>
+            <input type="text" id="contact_info" name="contact_info" value="{{ user.contact_info }}"><br>
+
+            <label for="experience">Опыт работы:</label><br>
+            <input type="text" id="experience" name="experience" value="{{ user.experience }}"><br>
+
+            <input type="submit" value="Обновить">
+        </form>
+    {% endif %}
 </body>
 </html>
