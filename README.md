@@ -32,9 +32,10 @@
 # Запуск пректа
 Использует СУБД Postgres<br>
 Все важные данные лежат в файле .env<br>
-1. Запускаем СУБД
-2. - если через pgAdmin, то все данные лежат в .env
+1. вводим команду git clone https://github.com/Mardanyan1/cabinet.git
+2. Запускаем СУБД
+3. - если через pgAdmin, то все данные лежат в .env
    - если через Docker, в консоли вводим ```docker-compose up -d ```. После запуска контейнера переходим в бд(все данные в .env) командой ```docker exec -it referral_postgres psql -U postgres```
-3. Заходим в корень проекта
-4. Вводим python manage.py runserver
-5. Проект запущен
+4. Заходим в корень проекта ```cabinet/myproject```
+5. Вводим python manage.py runserver
+6. Проект запущен
