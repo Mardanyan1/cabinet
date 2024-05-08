@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Login</title>
-</head>
-<body>
-    <h2>User Login</h2>
-<!--    {% if phone_number %}-->
-<!--    <p>Logged in as: {{ phone_number }}</p>-->
-<!--    {% endif %}-->
+{% extends 'cabinets/base.html' %}
+
+{% block title %}
+    Вход пользователя
+{% endblock %}
+
+{% block content %}
+    <h2>Вход пользователя</h2>
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
-        <label for="contact_info">Контактные данные:</label><br>
-        <input type="text" id="contact_info" name="contact_info" required><br>
+        <label for="username">Контактные данные:</label><br>
+        <input type="text" id="username" name="username" required><br>
 
         <label for="password">Пароль:</label><br>
         <input type="password" id="password" name="password" required><br><br>
 
         <input type="submit" value="Login">
     </form>
-</body>
-</html>
+{% endblock %}

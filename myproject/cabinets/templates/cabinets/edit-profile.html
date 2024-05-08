@@ -1,13 +1,13 @@
-{% extends 'cabinets/base.html' %}
-
-{% block title %}
-    Профиль пользователя
-{% endblock %}
-
-{% block content %}
-    <h2>Профиль</h2>
-<p>Имя юзера: {{ username.username }}</p>
-<!--    <p>Фамилия: {{ username.last_name }}</p>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h2>Profile</h2>
+    <p>Имя юзера: {{ username.username }}</p>
     <p>Контактные данные: {{ username.contact_info }}</p>
     <p>Опыт работы: {{ username.experience }}</p>
     <p>Вы Администратор?: {% if username.is_superuser %}
@@ -23,15 +23,11 @@
         {% endif %}
     </p>
 
-
     {% if username.is_superuser == True %}
         <form action="{% url 'edit_profile' %}" method="post">
             {% csrf_token %}
             <label for="username">Имя:</label><br>
             <input type="text" id="username" name="username" value="{{ user.username }}"><br>
-
-<!--            <label for="last_name">Фамилия:</label><br>-->
-<!--            <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}"><br>-->
 
             <label for="contact_info">Контактные данные:</label><br>
             <input type="text" id="contact_info" name="contact_info" value="{{ user.contact_info }}"><br>
@@ -39,13 +35,14 @@
             <label for="experience">Опыт работы:</label><br>
             <input type="text" id="experience" name="experience" value="{{ user.experience }}"><br>
 
-<!--            <label for="password1">Измени пароль:</label><br>-->
-<!--            <input type="text" id="password1" name="password1" value="{{ user.password }}"><br>-->
+            <label for="password1">Измени пароль:</label><br>
+            <input type="text" id="password1" name="password1" value="{{ user.password1 }}"><br>
 
-<!--            <label for="password2">Повтори пароль:</label><br>-->
-<!--            <input type="text" id="password2" name="password2" value="{{ user.password }}"><br>-->
+            <label for="password2">Повтори пароль:</label><br>
+            <input type="text" id="password2" name="password2" value="{{ user.password2 }}"><br>
 
             <input type="submit" value="Обновить">
         </form>
     {% endif %}
-{% endblock %}
+</body>
+</html>
